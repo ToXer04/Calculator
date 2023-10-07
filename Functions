@@ -1,0 +1,50 @@
+ public static double sum(String[] arr, double result) {
+        for (String s : arr) {
+            result += Double.parseDouble(s);
+        }
+        return result;
+    }
+    public static double sub(String[] arr, double result) {
+        result = Double.parseDouble(arr[0]);
+        for (int i=1;i<arr.length;i++) {
+            result -= Double.parseDouble(arr[i]);
+        }
+        return result;
+    }
+    public static double mul(String[] arr, double result) {
+        result = Double.parseDouble(arr[0]);
+        for (int i=1;i<arr.length;i++) {
+            result *= Double.parseDouble(arr[i]);
+        }
+        return result;
+    }
+    public static double div(String[] arr, double result) {
+        result = Double.parseDouble(arr[0]);
+        for (int i=1;i<arr.length;i++) {
+            if(Double.parseDouble(arr[i])==0) {
+                System.out.println("You can't divide a number by 0");
+                result = Double.parseDouble("NaN");
+                break;
+            } else {
+                result /= Double.parseDouble(arr[i]);
+            }
+        }
+        return result;
+    }
+    public static double pow(String[] arr, double result) {
+        result = Double.parseDouble(arr[0]);
+        if(arr.length != 2) {
+            System.out.println("To use this operator you have to give as input two numbers");
+            result = Double.parseDouble("NaN");
+        } else {
+            for(int i = 1;i<arr.length;i++) {
+                double num = Double.parseDouble(arr[i]);
+                while(num > 1) {
+                    result *= Double.parseDouble(arr[0]);
+                    num--;
+                }
+            }
+        }
+        return result;
+    }
+}
